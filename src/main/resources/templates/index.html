@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<style type="text/css">
+    body {
+    background-color: #d2b48c;
+    margin-left: 20%;
+    margin-right : 20%;
+    border: lpx dotted gray;
+    padding: lOpx lOpx lOpx lOpx;
+    font-family : sans- serif;
+    </style>-->
+
+    <!--    <link rel = "stylesheet" href = "MyStyle.css">-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <p> Esta página es un pequeño tributito a mi profesor de español (con todo respeto a él)</p>
+    <p></p>
+    <p></p>
+
+    <h2>Discurso del sabio borracho después del Año Nuevo Viejo</h2>
+
+    <p><span th:text="${'Antes de nada, '+expresList.get(0)}"/></p>
+    <p><span th:text="${'Además, '+expresList.get(1)}"/></p>
+    <p><span th:text="${'Para concluir, '+expresList.get(2)}"/></p>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
