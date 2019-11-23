@@ -1,6 +1,8 @@
 package base.services;
 
+import base.entities.Refran;
 import base.repositories.ExpressionRepository;
+import base.repositories.RefranRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,12 @@ import java.util.regex.Pattern;
 public class ExpressionService {
     private ExpressionRepository expressionRepository;
     Random random = new Random();
+    private RefranRepository refranRepository;
+
+    @Autowired
+    public void setRefranRepository(RefranRepository refranRepository) {
+        this.refranRepository = refranRepository;
+    }
 
     @Autowired
     public void setExpressionRepository(ExpressionRepository expressionRepository) {
@@ -34,6 +42,19 @@ public class ExpressionService {
         final int ints[] = random.ints(0, size).distinct().limit(n <= size ? n : size).toArray();
         for (int a : ints) {
             outputList.add(firstLetterOfFirstSentenceToLowerCase(sourceList.get(a)));
+        }
+        return outputList;
+    }
+
+    // This method returns n uniques (but not more than repository bean size) expressions from the repository bean together with their translations based on database
+    public List<String> getListOfRandomUniqueExpressionsWithTranslations(int n) {
+        List<String> outputList = new ArrayList<>();
+        List<Refran> sourceList=refranRepository.findAll();
+        int size = sourceList.size();
+        final int ints[] = random.ints(0, size).distinct().limit(n <= size ? n : size).toArray();
+        for (int a : ints) {
+            outputList.add(firstLetterOfFirstSentenceToLowerCase(sourceList.get(a).getExpres()));
+            outputList.add(firstLetterOfFirstSentenceToLowerCase(sourceList.get(a).getTransl()));
         }
         return outputList;
     }
