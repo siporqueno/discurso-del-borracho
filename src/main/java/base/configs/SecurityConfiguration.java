@@ -35,6 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .authenticated()
                 .and()
                 .formLogin()
+                .loginProcessingUrl("/authenticateTheUser")
+                .permitAll()
                 .and()
                 .httpBasic()
                 .and()
