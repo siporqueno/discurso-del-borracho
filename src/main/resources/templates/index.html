@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title>Getting Started: Serving Web Content</title>
     <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
     <!-- Required meta tags -->
-<!--    <meta charset="utf-8">-->
+    <!--    <meta charset="utf-8">-->
     <meta charset="windows-1251">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--<style type="text/css">
@@ -23,28 +23,57 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
+
 <body>
 
-<div class="container">
-    <p> Esta página es un tributo de respeto a mi profesor de español.</p>
-    <p>Эта страница - дань уважения моему преподавателю испанского.</p>
-    <p></p>
-    <p></p>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item" th:classappend="${activeTab == 'Home' ? 'active' : ''}">
+                            <a class="nav-link" th:href="@{/}">Home</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'Shop' ? 'active' : ''}">
+                            <a class="nav-link" th:href="@{/shop}">Shop</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${activeTab == 'Cart' ? 'active' : ''}">
+                            <a class="nav-link" th:href="@{/cart}">Cart</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                            <a class="nav-link" th:href="@{/admin}">Dashboard</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAnonymous()">
+                            <a class="nav-link btn btn-success" th:href="@{/login}">Login</a>
+                        </li> -->
+                    <li class="nav-item" sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="POST">
+                            <input type="submit" class="btn btn-danger text" value="Logout" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <p> Esta página es un tributo de respeto a mi profesor de español.</p>
+        <p>Эта страница - дань уважения моему преподавателю испанского.</p>
+        <p></p>
+        <p></p>
 
-    <h2><p>Discurso del sabio borracho después del Año Nuevo Viejo</p>
-        <p>Речь опьяневшего мудреца после Старого Нового Года</p>
-    </h2>
+        <h2>
+            <p>Discurso del sabio borracho después del Año Nuevo Viejo</p>
+            <p>Речь опьяневшего мудреца после Старого Нового Года</p>
+        </h2>
 
-    <p><span th:text="${'Antes de nada, '+expresList.get(0)}"/></p>
-    <p><span th:text="${'Прежде всего, '+expresList.get(1)}"/></p>
-    <p><span th:text="${'Además, '+expresList.get(2)}"/></p>
-    <p><span th:text="${'С другой стороны, '+expresList.get(3)}"/></p>
-    <p><span th:text="${'Para concluir, '+expresList.get(4)}"/></p>
-    <p><span th:text="${'В заключение, '+expresList.get(5)}"/></p>
-</div>
+        <p><span th:text="${'Antes de nada, '+expresList.get(0)}" /></p>
+        <p><span th:text="${'Прежде всего, '+expresList.get(1)}" /></p>
+        <p><span th:text="${'Además, '+expresList.get(2)}" /></p>
+        <p><span th:text="${'С другой стороны, '+expresList.get(3)}" /></p>
+        <p><span th:text="${'Para concluir, '+expresList.get(4)}" /></p>
+        <p><span th:text="${'В заключение, '+expresList.get(5)}" /></p>
+    </div>
 
-<script src="js/jquery.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>
