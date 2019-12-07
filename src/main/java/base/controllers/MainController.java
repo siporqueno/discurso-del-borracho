@@ -25,4 +25,8 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/about")
+    public String aboutPage(){
+        return "about_page";
+    }
 }

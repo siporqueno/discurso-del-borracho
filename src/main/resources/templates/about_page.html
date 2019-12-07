@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Sobre este discurso del borracho</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<style type="text/css">
+    body {
+    background-color: #d2b48c;
+    margin-left: 20%;
+    margin-right : 20%;
+    border: lpx dotted gray;
+    padding: lOpx lOpx lOpx lOpx;
+    font-family : sans- serif;
+    </style>-->
+
+    <!--    <link rel = "stylesheet" href = "MyStyle.css">-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div th:replace="~{navigation :: navigationOne(About)}"/>
+    <div th:replace="~{navigation :: navigationTwo(About)}"/>
+    <div th:replace="~{navigation :: navigationThree(About)}"/>
+
+    <div class="row">
+        <div class="col">
+            <p/>
+            <p/>
+            <p/>
+            <p class="font-italic"> Esta página es un tributo de respeto a mi profesor de español.</p>
+            <p class="font-italic">Эта страница - дань уважения моему преподавателю испанского.</p>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
