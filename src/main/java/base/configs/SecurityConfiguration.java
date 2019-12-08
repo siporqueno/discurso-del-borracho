@@ -53,6 +53,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // Any URL that has not already been matched on only requires that the user be authenticated.
                 .and()
                 .formLogin()
+// The below method defaultSuccessUrl sets the URL to go to after successful login
+//                .defaultSuccessUrl("/about", true)
 //                .loginProcessingUrl("/authenticateTheUser")
                 .permitAll()
                 .and()
