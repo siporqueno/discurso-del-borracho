@@ -21,8 +21,18 @@ public class MainController {
         model.addAttribute("secondExres", expressionService.getRandomUniqueExression());
         model.addAttribute("thirdExres", expressionService.getRandomUniqueExression());*/
 //        model.addAttribute("expresList", expressionService.getListOfRandomUniqueExpressions(3));
-        model.addAttribute("expresList", expressionService.getListOfRandomUniqueExpressionsWithTranslations(3));
+//        model.addAttribute("expresList", expressionService.getListOfRandomUniqueExpressionsWithTranslations(3));
         return "index";
+    }
+
+    @GetMapping("/tellme")
+    public String discursoPage(Model model){
+        /*model.addAttribute("firstExres", expressionService.getRandomUniqueExression());
+        model.addAttribute("secondExres", expressionService.getRandomUniqueExression());
+        model.addAttribute("thirdExres", expressionService.getRandomUniqueExression());*/
+//        model.addAttribute("expresList", expressionService.getListOfRandomUniqueExpressions(3));
+        model.addAttribute("expresList", expressionService.getListOfRandomUniqueExpressionsWithTranslations(3));
+        return "discurso";
     }
 
     @GetMapping("/about")

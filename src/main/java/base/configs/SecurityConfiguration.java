@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }*/
 
-    @Override
+   /* @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
@@ -59,6 +59,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .httpBasic()
+                .and()
+                .csrf().disable();
+    }*/
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/tellme**", "/about**").hasRole("USER")
+                // Any URL that starts with /tellme** o /about** will be restricted to users who have the role "ROLE_USER". You will notice that since we are invoking the hasRole method we do not need to specify the "ROLE_" prefix.
+                .anyRequest().authenticated()
+                // Any URL that has not already been matched on only requires that the user be authenticated.
+                .and()
+                .formLogin()
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .permitAll()
+//                .and()
+//                .httpBasic()
                 .and()
                 .csrf().disable();
     }
